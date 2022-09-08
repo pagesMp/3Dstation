@@ -356,9 +356,9 @@ class ProjectController extends Controller
         }
     }
 
-    public function getbylikes($num){
+    public function getbylikes($projectId,$num){
         try {
-            $likes = Like::all()->take($num);
+            $likes = Like::all()->where('project_id',$projectId)->take($num, $projectId);
 
         return response()->json(
             [
