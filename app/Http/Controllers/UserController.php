@@ -219,6 +219,30 @@ class UserController extends Controller
                404
             );
         }
+    }
 
+    public function getByNum($num){
+        try {
+            $project = User::all()->take($num);
+
+        return response()->json(
+            [
+                'success' => true,
+                'message' => 'you can get this number of users',
+                'data' => $project
+            ],
+            200
+        );
+
+        }catch (\Exception $exception){
+            Log::error('Error getting users'. $exception->getMessage());
+            return response()->json(
+                [
+                    'success' => false,
+                    'message' => 'Error to get users by num'                             
+                ],
+               404
+            );
+        }
     }
 }
