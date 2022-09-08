@@ -330,4 +330,29 @@ class ProjectController extends Controller
         }
 
     }
+
+    public function getByNum($num){
+        try {
+            $project = Project::all()->take($num);
+
+        return response()->json(
+            [
+                'success' => true,
+                'message' => 'you can get your number of projects',
+                'data' => $project
+            ],
+            200
+        );
+
+        }catch (\Exception $exception){
+            Log::error('Error get projects'. $exception->getMessage());
+            return response()->json(
+                [
+                    'success' => false,
+                    'message' => 'Error to get projects by num'                             
+                ],
+               404
+            );
+        }
+    }
 }
