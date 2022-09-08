@@ -43,8 +43,8 @@ Route::group(
 Route::group(
     function(){           
         Route::get('/public/projects/get/{num}', [ProjectController::class, 'getByNum']);
-        Route::get('/public/users/get/{num}', [UserController::class, 'getByNum']); 
-        Route::get('/public/project/{projectId}/likes/{num}', [ProjectController::class, 'get']);            
+        // Route::get('/public/users/get/{num}', [UserController::class, 'getByNum']); 
+        // Route::get('/public/project/{projectId}/likes/{num}', [ProjectController::class, 'get']);            
     }
 );
 
