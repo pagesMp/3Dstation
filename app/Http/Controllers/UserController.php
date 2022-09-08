@@ -223,7 +223,9 @@ class UserController extends Controller
 
     public function getByNum($num){
         try {
-            $project = User::all()->take($num);
+            $project = User::all()->where('role', '0')->take($num);
+
+
 
         return response()->json(
             [
