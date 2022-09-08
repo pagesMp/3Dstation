@@ -355,4 +355,29 @@ class ProjectController extends Controller
             );
         }
     }
+
+    public function getbylikes($num){
+        try {
+            $likes = Like::all()->take($num);
+
+        return response()->json(
+            [
+                'success' => true,
+                'message' => 'you can get your number of likes',
+                'data' => $likes
+            ],
+            200
+        );
+
+        }catch (\Exception $exception){
+            Log::error('Error getting likes'. $exception->getMessage());
+            return response()->json(
+                [
+                    'success' => false,
+                    'message' => 'Error to get likes by num'                             
+                ],
+               404
+            );
+        }
+    }    
 }
