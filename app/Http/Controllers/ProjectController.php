@@ -14,7 +14,7 @@ class ProjectController extends Controller
         try {
             $user = auth()->user();
 
-            if($user->company== 1){
+            if($user->company == 1){
                return response()->json(
                     [
                         'success'=> false,
@@ -160,7 +160,7 @@ class ProjectController extends Controller
                     $project->description = $request->input('description');
 
                 case $request->has('images'):
-                    $project->images =$request->input('images');
+                    $project->images = $request->input('images');
 
                 case $request->has('files'):
                     $project->files = $request->input('files');

@@ -13,7 +13,7 @@ class JobController extends Controller
         try {
             $user = auth()->user();
 
-            if($user->company== 0){
+            if($user->company == 0){
                 return response()->json(
                      [
                          'success'=> false,
