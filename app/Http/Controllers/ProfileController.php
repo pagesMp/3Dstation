@@ -8,8 +8,10 @@ use Illuminate\Http\Request;
 class ProfileController extends Controller
 {
     public function profile($id){
+        
         $user = User::find($id);    
-        $me = auth()->user();
+        try {
+            $me = auth()->user();
 
         //VER TU PROPIO PROFILE
         if($user->id  == $me->id){
@@ -22,6 +24,21 @@ class ProfileController extends Controller
             );
         }
 
+        }catch (\Exception $exception) {
+            return response()->json(
+                [
+                    "success" => true,
+                    "data" => (
+                        [
+                        "name" => $user->name ,
+                        "email" => $user->email
+                        ]
+                    )               
+                ],
+                200
+            );
+        }
+       
         //VER PROFILE AJENOS
         return response()->json(
             [
