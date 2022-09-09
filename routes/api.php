@@ -34,7 +34,6 @@ Route::group(
     ['middleware' => 'jwt.auth'],
     function(){           
         Route::get('/logout', [UserController::class, 'logout']);
-        Route::get('/profile/{id}', [ProfileController::class, 'profile']); 
         Route::post('/profile/update/{id}', [ProfileController::class, 'update']);
     }
 );
@@ -45,17 +44,17 @@ Route::group(
     function(){           
         Route::get('/public/projects/get/{num}', [ProjectController::class, 'getByNum']);
         Route::get('/public/users/get/{num}', [UserController::class, 'getByNum']); 
-        Route::get('/public/project/{projectId}/likes/{num}', [ProjectController::class, 'getbylikes']);            
+        Route::get('/public/project/{projectId}/likes/{num}', [ProjectController::class, 'getbylikes']);
+        Route::get('/public/profile/{id}', [ProfileController::class, 'profile']);
+        Route::get('/public/user/{id}/projects/get/all', [ProjectController::class, 'getAll']);             
     }
 );
-
 
 //CRUD PROJECTS
 Route::group(
     ['middleware' => 'jwt.auth'],
     function(){           
         Route::post('/project/create', [ProjectController::class, 'create']);
-        Route::get('/project/get/all/{id}', [ProjectController::class, 'getAll']); 
         Route::get('/project/get/{projectId}', [ProjectController::class, 'get']);
         Route::post('/project/update/{projectId}', [ProjectController::class, 'update']);
         Route::delete('/project/delete/{projectId}',[ProjectController::class, 'delete']);     
