@@ -71,7 +71,7 @@ class UserController extends Controller
         $input = $request->only('email', 'password');
         $jwt_token  = null;
 
-        if (!$jwt_token = JWTAuth::attempt($input)) {
+        if (JWTAuth::attempt($input) === null) {
             return response()->json(
                 [
                     'success' => false,
