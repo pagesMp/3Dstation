@@ -84,6 +84,7 @@ class UserController extends Controller
             [
                 'success' => true,
                 'token' => $jwt_token,
+                'user' => JWTAuth::toUser($jwt_token)
             ]
         );
     }
