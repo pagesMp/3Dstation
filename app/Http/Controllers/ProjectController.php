@@ -334,7 +334,7 @@ class ProjectController extends Controller
     public function getByNum($num){
         try {
             $project = Project::all()->take($num);
-
+        
         return response()->json(
             [
                 'success' => true,
@@ -380,4 +380,10 @@ class ProjectController extends Controller
             );
         }
     }    
+
+    public function addView($projectId){
+        $project = Project::find($projectId);
+        $project->view = $project->view + 1;
+        $project->save();
+    }
 }
