@@ -67,7 +67,8 @@ Route::group(
     ['middleware' => 'jwt.auth'],
     function(){           
         Route::post('/job/create', [JobController::class, 'create']);
-        Route::get('/job/get/all/{id}', [JobController::class, 'getAll']); 
+        Route::get('/job/get/all/{id}', [JobController::class, 'getAll']);
+        Route::get('/jobs/get/all', [JobController::class, 'getAllJobs']); 
         Route::get('/job/get/{jobId}', [JobController::class, 'get']);
         Route::put('/job/update/{jobId}', [JobController::class, 'update']);
         Route::delete('/job/delete/{jobId}',[JobController::class, 'delete']);     

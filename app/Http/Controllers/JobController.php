@@ -224,5 +224,30 @@ class JobController extends Controller
             );
         };
     }
+
+    public function getAllJobs(){
+        try {
+            $jobs = Job::query()->get();
+            
+            return response()->json(
+                [
+                    'success' => true,
+                    'message' => 'View all jobs',
+                    'data' => $jobs
+                ],
+               200
+            );
+
+        } catch (\Exception $exception) {
+            Log::error('Error to see all jobs' . $exception->getMessage());
+            return response()->json(
+                [
+                    'success' => false,
+                    'message' => 'Error to see all jobs'
+                ],
+               400
+            );    
+        }
+    }
     
 }
