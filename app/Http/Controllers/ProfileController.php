@@ -25,13 +25,22 @@ class ProfileController extends Controller
         }
 
         }catch (\Exception $exception) {
+            if($user->admin == 1){
+                return response()->json(
+                    [
+                        "success" => false,
+                        "message" => "no exist user"
+                    ],
+                    400
+                );
+            }
             return response()->json(
                 [
                     "success" => true,
                     "data" => (
                         [
-                        "name" => $user->name ,
-                        "email" => $user->email
+                            "name" => $user->name,
+                            "email" => $user->email
                         ]
                     )               
                 ],
