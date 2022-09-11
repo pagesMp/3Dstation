@@ -383,7 +383,7 @@ class ProjectController extends Controller
 
     public function addView($projectId){
         $project = Project::find($projectId);
-        $project->view = $project->view + 1;
+        $project->views = $project->views + 1;
         $project->save();
     }
 
