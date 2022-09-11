@@ -229,8 +229,7 @@ class ProjectController extends Controller
         try {
             $user = auth()->user();
             $likeExist = Like::query()->where('user_id', $user->id)->where('project_id', $projectId)->get();
-            Log::info('que me das tu' . $likeExist);
-
+           
             if(count($likeExist) > 0){
                 return response()->json(
                     [
@@ -240,16 +239,16 @@ class ProjectController extends Controller
                     400
                 );
             }
+            $project = Project::find($projectId);
+            $project->likes = $project->likes + 1;
+            $project->save();
                         
             $like = new Like();
             $like->user_id = $user->id;
             $like->project_id = $projectId;
             $like->save();
 
-            $project = Project::find($projectId);
-            $project->likes = $project->likes + 1;
-            $project->save();
-
+            
             return response()->json(
                 [
                     'success' => true,
