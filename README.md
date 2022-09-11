@@ -1,133 +1,135 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Introducción
 
-## Backend -- Dimension3
+En el backend se han creado las siguientes rutas. 
 
+A continuación se listan todas las llamadas, sus parámetros y requisitos.
 
-En el backend he implementado las siguentes funcionalidades:
+# Público
 
-# LLAMADAS PÚBLICAS
+## Registro
 
-Register:
+**POST** https://dimension3-backend.herokuapp.com/api/register 
 
-POST https://dimension3-backend.herokuapp.com/api/register 
+> BODY -> _name, email, password, company_
 
--> Datos a introducior : name, email, password y    company 
+## Inicio de sesión
 
-Login:
+**POST** https://dimension3-backend.herokuapp.com/api/login
 
-POST https://dimension3-backend.herokuapp.com/api/login
+> BODY -> _email, password_
 
--> Datos a introducior : email y password
+## Proyectos
 
----
+**GET** https://dimension3-backend.herokuapp.com/api/public/project/get/{num}
 
-GET https://dimension3-backend.herokuapp.com/api/public/project/get/{num}
+> PARAMS {num} -> número máximo de proyectos a obtener
 
-GET https://dimension3-backend.herokuapp.com/api/public/users/get/{num}
+**GET** https://dimension3-backend.herokuapp.com/api/public/project/{projectId}/likes/{num}
 
-GET https://dimension3-backend.herokuapp.com/api/public/project/{projectId}/likes/{num}
+> PARAMS {num} -> número máximo de likes (relacional usuario-proyecto)
 
-GET https://dimension3-backend.herokuapp.com/api/public/profile/{id}
+**GET** https://dimension3-backend.herokuapp.com/api/public/project/{projectId}/add/view
 
-GET https://dimension3-backend.herokuapp.com/api/public/user/{id}/projects/get/all
+> PARAMS {projectId} -> identificador de proyecto
 
-GET https://dimension3-backend.herokuapp.com/api/public/project/{projectId}/add/view
+**GET** https://dimension3-backend.herokuapp.com/api/public/project/get/{projectId}
 
-GET https://dimension3-backend.herokuapp.com/api/public/project/get/{projectId}
+> PARAMS {projectId} -> identificador de proyecto
 
-GET https://dimension3-backend.herokuapp.com/api/public/projects/search/{title}
+**GET** https://dimension3-backend.herokuapp.com/api/public/projects/search/{title}
 
+> PARAMS {title} -> título de proyecto
 
+## Usuarios
 
-# LLAMADAS PRIVADAS
+**GET** https://dimension3-backend.herokuapp.com/api/public/users/get/{num}
 
-Profile:
+> PARAMS {num} -> número máximo de usuarios a obtener
 
-GET https://dimension3-backend.herokuapp.com/api/register/api/profile/{id}
+**GET** https://dimension3-backend.herokuapp.com/api/public/profile/{id}
 
-Update Profile:
+> PARAMS {id} -> identificador de usuario
 
-POST https://dimension3-backend.herokuapp.com/api/profile/update/{id}
+**GET** https://dimension3-backend.herokuapp.com/api/public/user/{id}/projects/get/all
 
--> Datos a actualizar : name y email
+> PARAMS {id} -> identificador de usuario
 
-Profile Logout:
+# Privado (con autenticación)
 
-DELETE https://dimension3-backend.herokuapp.com/api/logout
+## Perfiles 
 
----
+**GET** https://dimension3-backend.herokuapp.com/api/register/api/profile/{id}
 
-Create Project:
+> PARAMS {id} -> identificador de usuario
 
-POST https://dimension3-backend.herokuapp.com/api/project/create
+**POST** https://dimension3-backend.herokuapp.com/api/profile/update/{id}
 
--> Datos a introducir : title, description, images, files, tags
+> PARAMS {id} -> identificador de usuario
 
-Update Project:
+> BODY -> _name, email_
 
-POST https://dimension3-backend.herokuapp.com/api/project/update/{projectId}
+**DELETE** https://dimension3-backend.herokuapp.com/api/logout
 
--> Datos a actualizar : title, description, images, files, tags
+## Proyectos
 
-Delete Project:
+**POST** https://dimension3-backend.herokuapp.com/api/project/create
 
-Delete https://dimension3-backend.herokuapp.com/api/project/udelete/{projectId}
+> BODY: _title, description, images, files, tags_
 
----
+**POST** https://dimension3-backend.herokuapp.com/api/project/update/{projectId}
 
-Create Job:
+> PARAMS {projectId} -> identificador de proyecto
 
-POST https://dimension3-backend.herokuapp.com/api/job/create
+> BODY: _title, description, images, files, tags_
 
--> Datos a introducir : title, description
+**DELETE** https://dimension3-backend.herokuapp.com/api/project/udelete/{projectId}
 
-Get Job de una empresa:
+> PARAMS {projectId} -> identificador de proyecto
 
-GET https://dimension3-backend.herokuapp.com/api/job/get/all/{id}
+## Ofertas de emplo
 
-Get  all Jobs:
+**POST** https://dimension3-backend.herokuapp.com/api/job/create
 
-GET https://dimension3-backend.herokuapp.com/api/jobs/get/all
+> BODY: _title, description_
 
-Get  JobById :
+**GET** https://dimension3-backend.herokuapp.com/api/job/get/all/{id}
 
-GET https://dimension3-backend.herokuapp.com/api/job/get/{jobId}
+> PARAMS {id} -> identificador de empresa
 
-Update Job:
+**GET** https://dimension3-backend.herokuapp.com/api/jobs/get/all
 
-PUT https://dimension3-backend.herokuapp.com/api/job/update/{jobId}
+**GET** https://dimension3-backend.herokuapp.com/api/job/get/{jobId}
 
--> Datos a actualizar : title, description
+> PARAMS {jobId} -> identificador de oferta de empleo
 
-Delete JobById:
+**PUT** https://dimension3-backend.herokuapp.com/api/job/update/{jobId}
 
-DELETE https://dimension3-backend.herokuapp.com/api/job/delete/{jobId}
+> PARAMS {jobId} -> identificador de oferta de empleo
 
----
+> BODY: _title, description_
 
-Crear Like:
+**DELETE** https://dimension3-backend.herokuapp.com/api/job/delete/{jobId}
 
-POST https://dimension3-backend.herokuapp.com/api/project/{projectId}/likes/add
+> PARAMS {jobId} -> identificador de oferta de empleo
 
+## Likes
 
-Delete Project Likes:
+**POST** https://dimension3-backend.herokuapp.com/api/project/{projectId}/likes/add
+
+> PARAMS {projectId} -> identificador de proyecto
 
 DELETE https://dimension3-backend.herokuapp.com/api/project/{projectId}/likes/delete
 
----
+> PARAMS {projectId} -> identificador de proyecto
 
-Crear Follow:
+## Follows
 
-POST https://dimension3-backend.herokuapp.com/api/profile/{userId}/follow/add
+**POST** https://dimension3-backend.herokuapp.com/api/profile/{userId}/follow/add
 
+> PARAMS {userId} -> identificador de usuario
 
-Delete Project Likes:
+**DELETE** https://dimension3-backend.herokuapp.com/api/profile/{userId}/follow/delete
 
-DELETE https://dimension3-backend.herokuapp.com/api/profile/{pusertId}/follow/delete
+> PARAMS {userId} -> identificador de usuario
