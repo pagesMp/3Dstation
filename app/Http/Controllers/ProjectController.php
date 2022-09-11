@@ -246,6 +246,10 @@ class ProjectController extends Controller
             $like->project_id = $projectId;
             $like->save();
 
+            $project = Project::find($projectId);
+            $project->likes = $project->likes + 1;
+            $project->save();
+
             return response()->json(
                 [
                     'success' => true,
