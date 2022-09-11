@@ -47,7 +47,7 @@ Route::group(
         Route::get('/public/project/{projectId}/likes/{num}', [ProjectController::class, 'getbylikes']);
         Route::get('/public/profile/{id}', [ProfileController::class, 'profile']);
         Route::get('/public/user/{id}/projects/get/all', [ProjectController::class, 'getAll']); 
-        Route::get('/public/project/{projectId}/add/view', [ProjectProjectController::class, 'addView']); 
+        Route::get('/public/project/{projectId}/add/view', [ProjectController::class, 'addView']); 
         Route::get('/public/project/get/{projectId}', [ProjectController::class, 'get']);
         Route::get('/public/projects/search/{title}',[ProjectController::class, 'getByName']);           
     }
