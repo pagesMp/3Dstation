@@ -386,4 +386,38 @@ class ProjectController extends Controller
         $project->view = $project->view + 1;
         $project->save();
     }
+
+    public function getByName($title){
+        try {
+            $projects = Project::query()->where('title',$title)->get();
+
+            if(!$projects && count($projects)>0){
+                return response()->json(
+                    [
+                        'success' => false,
+                        'message' => 'Projects not found'
+                    ],
+                   400
+                );
+            }
+
+            return response()->json(
+                [
+                    'success' => true,
+                    'message' => 'View all projects from this user',
+                    'data' => $projects
+                ],
+               200
+            );
+        }catch (\Exception $exception){
+            Log::error('Error getting projects'. $exception->getMessage());
+            return response()->json(
+                [
+                    'success' => false,
+                    'message' => 'Error to getting projects'                             
+                ],
+               404
+            );
+        }
+    }
 }
