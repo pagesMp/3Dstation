@@ -239,6 +239,7 @@ class ProjectController extends Controller
                     400
                 );
             }
+            
             $project = Project::find($projectId);
             $project->likes = $project->likes + 1;
             $project->save();

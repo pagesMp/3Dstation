@@ -7,58 +7,127 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## Backend -- Dimension3
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+En el backend he implementado las siguentes funcionalidades:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+# LLAMADAS PÚBLICAS
 
-## Learning Laravel
+Register:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+POST https://dimension3-backend.herokuapp.com/api/register 
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+-> Datos a introducior : name, email, password y    company 
 
-## Laravel Sponsors
+Login:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+POST https://dimension3-backend.herokuapp.com/api/login
 
-### Premium Partners
+-> Datos a introducior : email y password
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+---
 
-## Contributing
+GET https://dimension3-backend.herokuapp.com/api/public/project/get/{num}
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+GET https://dimension3-backend.herokuapp.com/api/public/users/get/{num}
 
-## Code of Conduct
+GET https://dimension3-backend.herokuapp.com/api/public/project/{projectId}/likes/{num}
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+GET https://dimension3-backend.herokuapp.com/api/public/profile/{id}
 
-## Security Vulnerabilities
+GET https://dimension3-backend.herokuapp.com/api/public/user/{id}/projects/get/all
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+GET https://dimension3-backend.herokuapp.com/api/public/project/{projectId}/add/view
 
-## License
+GET https://dimension3-backend.herokuapp.com/api/public/project/get/{projectId}
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+GET https://dimension3-backend.herokuapp.com/api/public/projects/search/{title}
+
+
+
+# LLAMADAS PRIVADAS
+
+Profile:
+
+GET https://dimension3-backend.herokuapp.com/api/register/api/profile/{id}
+
+Update Profile:
+
+POST https://dimension3-backend.herokuapp.com/api/profile/update/{id}
+
+-> Datos a actualizar : name y email
+
+Profile Logout:
+
+DELETE https://dimension3-backend.herokuapp.com/api/logout
+
+---
+
+Create Project:
+
+POST https://dimension3-backend.herokuapp.com/api/project/create
+
+-> Datos a introducir : title, description, images, files, tags
+
+Update Project:
+
+POST https://dimension3-backend.herokuapp.com/api/project/update/{projectId}
+
+-> Datos a actualizar : title, description, images, files, tags
+
+Delete Project:
+
+Delete https://dimension3-backend.herokuapp.com/api/project/udelete/{projectId}
+
+---
+
+Create Job:
+
+POST https://dimension3-backend.herokuapp.com/api/job/create
+
+-> Datos a introducir : title, description
+
+Get Job de una empresa:
+
+GET https://dimension3-backend.herokuapp.com/api/job/get/all/{id}
+
+Get  all Jobs:
+
+GET https://dimension3-backend.herokuapp.com/api/jobs/get/all
+
+Get  JobById :
+
+GET https://dimension3-backend.herokuapp.com/api/job/get/{jobId}
+
+Update Job:
+
+PUT https://dimension3-backend.herokuapp.com/api/job/update/{jobId}
+
+-> Datos a actualizar : title, description
+
+Delete JobById:
+
+DELETE https://dimension3-backend.herokuapp.com/api/job/delete/{jobId}
+
+---
+
+Crear Like:
+
+POST https://dimension3-backend.herokuapp.com/api/project/{projectId}/likes/add
+
+
+Delete Project Likes:
+
+DELETE https://dimension3-backend.herokuapp.com/api/project/{projectId}/likes/delete
+
+---
+
+Crear Follow:
+
+POST https://dimension3-backend.herokuapp.com/api/profile/{userId}/follow/add
+
+
+Delete Project Likes:
+
+DELETE https://dimension3-backend.herokuapp.com/api/profile/{pusertId}/follow/delete
