@@ -23,5 +23,10 @@ class UsersSeeder extends Seeder
                 'admin'=> 1
             ]
         ); 
-    }
+            
+        //TO DO NEW USER
+    }  
+        
+        
+    
 }
