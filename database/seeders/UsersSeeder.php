@@ -29,7 +29,7 @@ class UsersSeeder extends Seeder
         DB::table('users')->insert(
             [
                 'name'=> 'Gandalf',
-                'email'=> 'gandalf@3dweb.com',
+                'email'=> 'gandalf@gmail.com',
                 'password'=> bcrypt('123456!'),
                 'admin'=> 0
             ]
