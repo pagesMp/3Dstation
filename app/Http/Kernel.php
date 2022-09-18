@@ -66,6 +66,6 @@ class Kernel extends HttpKernel
         //importamos el token
         'jwt.auth' => \Tymon\JWTAuth\Middleware\GetUserFromToken::class,
         //Importamos el Admin
-        'Admin' => \Tymon\JWTAuth\Middleware\Admin::class
+        'Admin' => \App\Http\Middleware\Admin::class
     ];
 }
