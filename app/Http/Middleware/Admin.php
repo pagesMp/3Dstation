@@ -21,7 +21,7 @@ class Admin
         $userId = auth()->user()->id;
         $user = User::find($userId);
 
-        $hasRole = $user->admin->contains(1);
+        $hasRole = $user->admin->contains(true);
         
         if(!$hasRole){
             return response()->json(
