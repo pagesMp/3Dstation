@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProfileController;
@@ -50,6 +51,14 @@ Route::group(
         Route::get('/public/project/{projectId}/add/view', [ProjectController::class, 'addView']); 
         Route::get('/public/project/get/{projectId}', [ProjectController::class, 'get']);
         Route::get('/public/projects/search/{title}',[ProjectController::class, 'getByName']);           
+    }
+);
+
+Route::group(
+    ['middleware' => ['jwt.auth','Admin']],
+    function(){           
+        Route::delete('/admin/project/delete/{projectId}', [AdminController::class, 'deleteProject']);
+        Route::delete('/admin/user/delete/{userId}', [AdminController::class, 'deleteUser']);
     }
 );
 
