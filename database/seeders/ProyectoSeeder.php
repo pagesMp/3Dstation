@@ -20,8 +20,8 @@ class ProyectoSeeder extends Seeder
                 'title'=>'Tumba de Kazad Dun',
                 'user_id'=> 3,
                 'description'=>'Tumba del antiguo rey enano Balin',                
-                'images'=>array("https:\/\/pbs.twimg.com\/media\/DaIquMnU8AIZ83p.jpg","https:\/\/powerups.es\/wp-content\/uploads\/2022\/06\/DCBD9289-2764-4093-8D80-BDC80C94CA4A-e1655027673305.jpeg"),
-                'files'=>array("https:\/\/sketchfab.com\/models\/698ab634e0e54f82bbcf54a5392f75bc\/embed?autostart=1&camera=0"),
+                'images'=>array("https:\//pbs.twimg.com\/media\/DaIquMnU8AIZ83p.jpg","https://powerups.es\/wp-content\/uploads\/2022\/06\/DCBD9289-2764-4093-8D80-BDC80C94CA4A-e1655027673305.jpeg"),
+                'files'=>array("https://sketchfab.com\/models\/698ab634e0e54f82bbcf54a5392f75bc\/embed?autostart=1&camera=0"),
                 'likes'=>rand(0,25),
                 'views'=>rand(0,50),
                 'tags'=>array('3D', '2D', 'Tumba de Kazad Dun', 'LOTR')
@@ -33,8 +33,8 @@ class ProyectoSeeder extends Seeder
                 'title'=>'Abismo de Helm',
                 'user_id'=> 3,
                 'description'=>'TuAntigua Ultima fortaleza de rohan',                
-                'images'=>array("https:\/\/static.wikia.nocookie.net\/eldragonverde\/images\/c\/c8\/Helm.jpg\/revision\/latest?cb=20120129171806&path-prefix=es"),
-                'files'=>array("https:\/\/sketchfab.com\/models\/1eb25616c8a54ddf928ce6541cbd477b\/embed?autostart=1&camera=0"),
+                'images'=>array("https://static.wikia.nocookie.net\/eldragonverde\/images\/c\/c8\/Helm.jpg\/revision\/latest?cb=20120129171806&path-prefix=es"),
+                'files'=>array("https://sketchfab.com\/models\/1eb25616c8a54ddf928ce6541cbd477b\/embed?autostart=1&camera=0"),
                 'likes'=>rand(0,25),
                 'views'=>rand(0,50),
                 'tags'=>array('3D', '2D', 'Helms Deep', 'LOTR')
