@@ -25,6 +25,15 @@ class UsersSeeder extends Seeder
         ); 
             
         //TO DO NEW USER
+
+        DB::table('users')->insert(
+            [
+                'name'=> 'Gandalf',
+                'email'=> 'gandalf@3dweb.com',
+                'password'=> bcrypt('123456!'),
+                'admin'=> 0
+            ]
+        );
     }  
         
         
