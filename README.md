@@ -20,6 +20,12 @@ A continuación se listan todas las llamadas, sus parámetros y requisitos.
 
 > BODY -> _email, password_
 
+## Admin
+
+**DELETE** https://dimension3-backend.herokuapp.com/api/admin/user/delete/{userId}
+
+**DELETE** https://dimension3-backend.herokuapp.com/api/admin/project/delete/{projectId}
+
 ## Proyectos
 
 **GET** https://dimension3-backend.herokuapp.com/api/public/project/get/{num}

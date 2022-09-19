@@ -54,6 +54,7 @@ Route::group(
     }
 );
 
+//ADMIN
 Route::group(
     ['middleware' => ['jwt.auth','Admin']],
     function(){           
