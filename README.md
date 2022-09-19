@@ -24,7 +24,11 @@ A continuación se listan todas las llamadas, sus parámetros y requisitos.
 
 **DELETE** https://dimension3-backend.herokuapp.com/api/admin/user/delete/{userId}
 
+> PARAMS {userId} -> identificador de usuario
+
 **DELETE** https://dimension3-backend.herokuapp.com/api/admin/project/delete/{projectId}
+
+> PARAMS {projectId} -> identificador de proyecto
 
 ## Proyectos
 
