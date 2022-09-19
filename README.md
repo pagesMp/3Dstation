@@ -133,3 +133,7 @@ DELETE https://dimension3-backend.herokuapp.com/api/project/{projectId}/likes/de
 **DELETE** https://dimension3-backend.herokuapp.com/api/profile/{userId}/follow/delete
 
 > PARAMS {userId} -> identificador de usuario
+
+## RELATIONAL DB
+
+![BD](img/db.png)
